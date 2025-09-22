@@ -1,0 +1,22 @@
+{% extends 'app/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Кафедри</h1>
+        <ul>
+            {% for department in departments%}
+            <li class="department-item">
+                <a href="{% url 'app:departments_details' department.id %}">{{ department.name }}</a>
+                <p>Завідувач кафедри: {{ department.head }}</p>
+                {% if department.programs.exists%}
+                    <h3>Спеціальності, для яких кафедра є випусковою:</h3>
+                    {% for program in department.programs.all%}
+                        <p>{{ program.name }}</p>
+                    {% endfor%}
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

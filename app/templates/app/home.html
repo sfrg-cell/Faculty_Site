@@ -1,0 +1,41 @@
+{% extends 'app/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ content.title }}</h1>
+        <p>{{ content.faculty }}</p>
+
+        <div class="section">
+            <h2>Освітні програми</h2>
+            <div class="section-content">
+                <img src="{% static 'app/podil2.jpg' %}" alt="Освітні програми">
+                <p>{{ content.programs }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Викладацький склад</h2>
+            <div class="section-content">
+                <img src="{% static 'app/students3.jpg' %}" alt="Викладацький склад">
+                <p>{{ content.teachers }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Міжнародні можливості</h2>
+            <div class="section-content">
+                <img src="{% static 'app/students4.jpg' %}" alt="Міжнародні можливості">
+                <p>{{ content.international }}</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Контакти</h2>
+            <div class="section-content">
+                <img src="{% static 'app/podil.jpg' %}" alt="Контакти">
+                <p>{{ content.contacts }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

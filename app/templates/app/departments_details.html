@@ -1,0 +1,34 @@
+{% extends 'app/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <h1>Кафедри</h1>
+        <ul>
+            <li class="department-item">
+                <h1>{{ department.name }}</h1>
+                <img src="{% static 'app/students2.jpg' %}" alt="Кафедра">
+                <p>Завідувач кафедри: {{ department.head }}</p>
+            </li>
+            <li class="department-item">
+                {% if department.programs.exists%}
+                    <h3>Спеціальності, для яких кафедра є випусковою:</h3>
+                    {% for program in department.programs.all%}
+                        <p>{{ program.name }}</p>
+                    {% endfor%}
+                {% endif %}
+            </li>
+
+            <p>Викладачі кафедри:</p>
+            <div class="teachers-list">
+                {% for teacher in department.teachers.all %}
+                    <div class="teacher-card">
+                        <p class="teacher-name">{{ teacher.name }}</p>
+                        <p class="teacher-position">{{ teacher.position }}</p>
+                        <p class="teacher-degree">{{ teacher.degree }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </ul>
+    </div>
+{% endblock %}

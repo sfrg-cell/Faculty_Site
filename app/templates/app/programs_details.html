@@ -1,0 +1,22 @@
+{% extends 'app/index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class ="program-item">
+            <h1>{{ program.code }} {{ program.name }}</h1>
+            <img src="{% static 'app/comp.jpg' %}" alt="Спеціальність">
+            <p>{{ program.description }}</p>
+            <p>Координатор: {{ program.coordinator.name }}</p>
+            <p>{{ program.coordinator_email }}</p>
+            <p>{{ program.department.name }}</p>
+
+            <h2>Дисципліни:</h2>
+            <ul class="disciplines-list">
+                {% for discipline in program.disciplines.all %}
+                    <li>{{ discipline.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
