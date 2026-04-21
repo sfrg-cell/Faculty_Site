@@ -1,0 +1,19 @@
+{% extends 'app/index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Список спеціальностей</h1>
+    <ul>
+        {% for program in programs %}
+        <li class="program-item">
+            <a href="{% url 'app:programs_details' program.id %}">{{ program.code }} {{ program.name }}</a>
+            <p>{{ program.description|truncatechars:50 }}</p>
+            <p>Координатор: {{ program.coordinator.name }}</p>
+            <p>{{ program.coordinator_email }}</p>
+            <p>{{ program.department.name }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

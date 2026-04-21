@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty of Informatics</title>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img class="logo" src="{% static 'app/fi.jpg' %}" alt="Факультет інформатики" height="50">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a class="active" href="{% url 'home' %}">Головна</a></li>
+                        <li><a href="{% url 'app:departments' %}">Кафедри</a></li>
+                        <li><a href="{% url 'app:programs' %}">Спеціальності</a></li>
+                    </ul>
+                </nav>
+        </div>
+    </header>
+    <section class="content">
+        {% block content %}
+
+        {% endblock %}
+    </section>
+    <footer>
+        <div class="container">
+            <div>This site is made by Havryliuk Ioanna on 21th of September 2025</div>
+        </div>
+    </footer>
+</body>
+</html>
